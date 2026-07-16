@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+
+:root {
+  --bg-color: #FFF5F5;
+  --text-color: #1a1a1a;
+  --border-color: #1a1a1a;
+  
+  /* Doodles Pastels */
+  --pastel-pink: #FFAACB;
+  --pastel-blue: #9FE2BF;
+  --pastel-yellow: #FDFD96;
+  --pastel-purple: #CDB4DB;
+  
+  --border-radius: 24px;
+  --thick-border: 4px solid var(--border-color);
+  --sharp-shadow: 6px 6px 0px var(--border-color);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+h1, h2, h3 {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 3px 3px 0px var(--pastel-pink);
+}
+
+/* Base Card Style */
+.card {
+  background-color: white;
+  border: var(--thick-border);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--sharp-shadow);
+  margin-bottom: 2rem;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* Doodles Button */
+.btn {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.8rem 2rem;
+  border: var(--thick-border);
+  border-radius: var(--border-radius);
+  background-color: var(--pastel-yellow);
+  color: var(--text-color);
+  cursor: pointer;
+  box-shadow: 4px 4px 0px var(--border-color);
+  transition: all 0.1s ease-in-out;
+  text-transform: uppercase;
+}
+
+.btn:active {
+  box-shadow: 0px 0px 0px var(--border-color);
+  transform: translate(4px, 4px);
+}
+
+.btn-primary { background-color: var(--pastel-pink); }
+.btn-secondary { background-color: var(--pastel-blue); }
+.btn-tertiary { background-color: var(--pastel-purple); }
+
+/* Inputs */
+.input-field {
+  width: 100%;
+  padding: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  border: var(--thick-border);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  background-color: white;
+}
+
+.input-field:focus {
+  outline: none;
+  background-color: #F8F8F8;
+  border-color: var(--pastel-pink);
+}
+
+/* Layout utilities */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: var(--thick-border);
+}
+
+.quest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border: 3px solid var(--border-color);
+  border-radius: 20px;
+  font-weight: 900;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.badge.active { background-color: var(--pastel-blue); }
+.badge.closed { background-color: #E0E0E0; }
+
+.quest-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.quest-card p {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.bounty-amount {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--pastel-pink);
+  text-shadow: 1px 1px 0px #1a1a1a;
+  margin-bottom: 1rem;
+}
