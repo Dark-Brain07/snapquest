@@ -5,12 +5,8 @@ import './index.css';
 
 export const CONTRACT_ADDRESS = "0x309ccfc772dAB0611a90aD9895cBDc8619A60c68";
 
-// Mock Quests for UI Demonstration before Contract Integration
-const MOCK_QUESTS = [
-  { id: 1, title: "Golden Doggo", prompt: "Take a picture of a Golden Retriever wearing sunglasses.", bounty: 50, active: true },
-  { id: 2, title: "Neon Nights", prompt: "A glowing neon sign that says 'OPEN' in red.", bounty: 25, active: true },
-  { id: 3, title: "Vintage Wheels", prompt: "A classic VW Beetle from the 1970s.", bounty: 100, active: false }
-];
+// Quests will be fetched from the GenLayer intelligent contract
+const MOCK_QUESTS: any[] = [];
 
 function App() {
   const { login, logout, authenticated, user } = usePrivy();
