@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { usePrivy } from '@privy-io/react-auth';
 import { Camera, PlusCircle, Coins, Search } from 'lucide-react';
 import './index.css';
