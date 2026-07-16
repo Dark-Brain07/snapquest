@@ -68,7 +68,10 @@ function App() {
   };
 
   const handleSubmitPhoto = async (questId: number) => {
-    if (!walletClient || !address) return;
+    if (!walletClient || !address) {
+      alert("Please connect your wallet first!");
+      return;
+    }
     const url = prompt("Enter the exact URL of your photo to submit to the AI Judge:");
     if (!url) return;
     
@@ -221,18 +224,17 @@ function App() {
     <div className="container">
       {renderHeader()}
       <main>
-        {!isConnected ? (
-          <div className="card" style={{ textAlign: 'center', padding: '4rem 2rem' }}>
-            <Search size={64} color="#FFAACB" style={{ marginBottom: '2rem' }} />
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Welcome to SnapQuest</h2>
-            <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>Connect your wallet to start hunting and earning GEN!</p>
+        {!isConnected && view === 'feed' && (
+          <div className="card" style={{ textAlign: 'center', padding: '3rem 2rem' }}>
+            <Search size={48} color="#FFAACB" style={{ marginBottom: '1rem' }} />
+            <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Welcome to SnapQuest</h2>
+            <p style={{ fontSize: '1.1rem', marginBottom: '2rem' }}>Connect your wallet to create quests and earn GEN!</p>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <ConnectButton />
             </div>
           </div>
-        ) : (
-          view === 'feed' ? renderFeed() : renderCreate()
         )}
+        {view === 'feed' ? renderFeed() : renderCreate()}
       </main>
     </div>
   );
