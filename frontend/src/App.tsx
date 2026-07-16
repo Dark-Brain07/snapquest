@@ -5,7 +5,7 @@ import { Camera, PlusCircle, Coins, Search, Loader2 } from 'lucide-react';
 import { readContract, writeContract, makeWalletClient } from './genlayer';
 import './index.css';
 
-export const CONTRACT_ADDRESS = "0x309ccfc772dAB0611a90aD9895cBDc8619A60c68";
+export const CONTRACT_ADDRESS = "0xd0D65B96f8C248067fF480ACEb9c718E4D213B40";
 
 function App() {
   const { isConnected, address } = useAccount();
