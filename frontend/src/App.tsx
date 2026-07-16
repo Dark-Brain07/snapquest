@@ -94,8 +94,8 @@ function App() {
 
   const renderHeader = () => (
     <header className="header">
-      <div>
-        <h1>📸 SnapQuest</h1>
+      <div onClick={() => setView('feed')} style={{ cursor: 'pointer' }}>
+        <h1 style={{ transition: 'opacity 0.2s' }} onMouseOver={e => e.currentTarget.style.opacity = '0.8'} onMouseOut={e => e.currentTarget.style.opacity = '1'}>📸 SnapQuest</h1>
         <p style={{ fontWeight: 700, opacity: 0.8 }}>The Decentralized AI Scavenger Hunt</p>
       </div>
       <div>
