@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { usePrivy } from '@privy-io/react-auth';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { useAccount } from 'wagmi';
 import { Camera, PlusCircle, Coins, Search } from 'lucide-react';
 import './index.css';
 
@@ -9,7 +10,7 @@ export const CONTRACT_ADDRESS = "0x309ccfc772dAB0611a90aD9895cBDc8619A60c68";
 const MOCK_QUESTS: any[] = [];
 
 function App() {
-  const { login, logout, authenticated, user } = usePrivy();
+  const { isConnected, address } = useAccount();
   const [view, setView] = useState<'feed' | 'create'>('feed');
   
   const [newTitle, setNewTitle] = useState('');
@@ -23,14 +24,7 @@ function App() {
         <p style={{ fontWeight: 700, opacity: 0.8 }}>The Decentralized AI Scavenger Hunt</p>
       </div>
       <div>
-        {authenticated ? (
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            <span className="badge active">💳 {user?.wallet?.address.slice(0, 6)}...</span>
-            <button className="btn btn-primary" onClick={logout}>Disconnect</button>
-          </div>
-        ) : (
-          <button className="btn btn-secondary" onClick={login}>Connect Wallet</button>
-        )}
+        <ConnectButton />
       </div>
     </header>
   );
@@ -39,7 +33,7 @@ function App() {
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2rem' }}>
         <h2>Active Quests</h2>
-        {authenticated && (
+        {isConnected && (
           <button className="btn btn-primary" onClick={() => setView('create')}>
             <PlusCircle size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'bottom' }} /> 
             Create Quest
@@ -120,14 +114,14 @@ function App() {
     <div className="container">
       {renderHeader()}
       <main>
-        {!authenticated ? (
+        {!isConnected ? (
           <div className="card" style={{ textAlign: 'center', padding: '4rem 2rem' }}>
             <Search size={64} color="#FFAACB" style={{ marginBottom: '2rem' }} />
             <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Welcome to SnapQuest</h2>
             <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>Connect your wallet to start hunting and earning GEN!</p>
-            <button className="btn btn-secondary" onClick={login} style={{ fontSize: '1.5rem', padding: '1rem 3rem' }}>
-              Start Hunting
-            </button>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <ConnectButton />
+            </div>
           </div>
         ) : (
           view === 'feed' ? renderFeed() : renderCreate()
