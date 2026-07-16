@@ -90,8 +90,13 @@ def _handle_leader_error(leaders_res: gl.vm.Result, leader_fn) -> bool:
         validator_msg = getattr(e, "message", None) or str(e)
         if validator_msg.startswith(ERROR_EXPECTED) or validator_msg.startswith(ERROR_EXTERNAL):
             return validator_msg == leader_msg
-        if validator_msg.startswith(ERROR_TRANSIENT) and leader_msg.startswith(ERROR_TRANSIENT):
+        
+        # If both hit a transient or LLM error, agree to fail cleanly
+        is_val_trans = validator_msg.startswith(ERROR_TRANSIENT) or validator_msg.startswith(ERROR_LLM)
+        is_lead_trans = leader_msg.startswith(ERROR_TRANSIENT) or leader_msg.startswith(ERROR_LLM)
+        if is_val_trans and is_lead_trans:
             return True
+            
         return False
     except Exception:
         return False
@@ -224,8 +229,8 @@ class SnapQuest(gl.Contract):
             f"OBJECTIVE:\n{prompt_text}\n\n"
             "Decide whether the photo perfectly satisfies the objective. "
             "If the requested object or scene is missing, it is NOT compliant.\n"
-            'Respond ONLY as JSON: {"compliant": true|false, '
-            '"score": <integer 0-100 confidence>, "reason": "<one sentence explanation>"}'
+            "CRITICAL: You MUST respond ONLY with a valid JSON object. Do NOT include markdown formatting, backticks, or conversational text.\n"
+            'Format: {"compliant": true|false, "score": <integer 0-100>, "reason": "<one sentence>"}'
         )
 
         def leader_fn() -> dict:
