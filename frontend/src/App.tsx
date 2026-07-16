@@ -10,7 +10,7 @@ export const CONTRACT_ADDRESS = "0x309ccfc772dAB0611a90aD9895cBDc8619A60c68";
 const MOCK_QUESTS: any[] = [];
 
 function App() {
-  const { isConnected, address } = useAccount();
+  const { isConnected } = useAccount();
   const [view, setView] = useState<'feed' | 'create'>('feed');
   
   const [newTitle, setNewTitle] = useState('');
