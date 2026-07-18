@@ -44,31 +44,6 @@ SnapQuest relies on **GenLayer's Equivalence Principle**. Here's how a submissio
 
 ---
 
-## 🏆 GenLayer Points Portal Submission
-
-This project is prepared for the **GenLayer Points Portal** and adheres strictly to the official submission guidelines.
-
-### Category: Projects & Milestones (20-4000 pts)
-**Project Title:** SnapQuest MVP  
-**Description:** A complete, full-stack decentralized scavenger hunt demonstrating real-world utility of GenLayer's Intelligent Contracts and visual AI validation.
-
-- **Live App (Vercel):** `[Insert Vercel URL Here]`
-- **Explorer/Studio Link:** [View on GenLayer Studio](https://studio.genlayer.com/contracts?import-contract=0xd0D65B96f8C248067fF480ACEb9c718E4D213B40)
-- **Source Code:** [GitHub Repository](https://github.com/Dark-Brain07/snapquest)
-
-### Category: Tools & Infrastructure (50-2500 pts)
-#### SnapQuest Intelligent Contract
-**Title:** SnapQuest Validator Contract  
-**Description:** A native Python Intelligent Contract showcasing complex image ingestion, non-deterministic evaluation handling, and automated fund distribution on GenLayer.
-
-- **Contract Address:** `0xd0D65B96f8C248067fF480ACEb9c718E4D213B40`
-- **Explorer/Studio Link:** [View on GenLayer Studio](https://studio.genlayer.com/contracts?import-contract=0xd0D65B96f8C248067fF480ACEb9c718E4D213B40)
-- **Source Code:** [`contracts/snapquest.py`](./contracts/snapquest.py)
-
-*(Note: Replace the placeholders above once deployed to Bradbury Testnet).*
-
----
-
 ## 💻 Getting Started
 
 ### Prerequisites
