@@ -52,6 +52,10 @@ This project is prepared for the **GenLayer Points Portal** and adheres strictly
 **Project Title:** SnapQuest MVP  
 **Description:** A complete, full-stack decentralized scavenger hunt demonstrating real-world utility of GenLayer's Intelligent Contracts and visual AI validation.
 
+- **Live App (Vercel):** `[Insert Vercel URL Here]`
+- **Explorer/Studio Link:** [View on GenLayer Studio](https://studio.genlayer.com/contracts?import-contract=[Insert Deployed Address Here])
+- **Source Code:** [GitHub Repository](https://github.com/Dark-Brain07/snapquest)
+
 ### Category: Tools & Infrastructure (50-2500 pts)
 #### SnapQuest Intelligent Contract
 **Title:** SnapQuest Validator Contract  
